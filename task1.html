@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Fixed Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background-color: #111;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    /* Sample page content */
+    .content {
+      margin-top: 100px;
+      padding: 40px;
+    }
+
+    .section {
+      height: 100vh;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div id="home" class="section">🏠 Home Section</div>
+    <div id="services" class="section">🛠️ Services Section</div>
+    <div id="about" class="section">📖 About Section</div>
+    <div id="contact" class="section">📬 Contact Section</div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
